@@ -15,7 +15,7 @@ public class City
 
     public City(String name) throws IOException
     {
-        Path path = Paths.get(name);
+        Path path = Paths.get(new ClassPathResource(name).getURI());
         data = Files.readAllBytes(path);
 
         indexSize = Util.bytesToLong(data[0], data[1], data[2], data[3]);
